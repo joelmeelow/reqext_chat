@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .patient-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .unread {
+            border-left: 5px solid #007bff;
+        }
+        .unread-count {
+            background-color: #ffeb3b;
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-size: 0.8em;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Patients List</h2>
+    <div id="patient-list">
+        {% for patient in patients %}
+            <div class="patient-item {{ 'unread' if patient.unread_count > 0 else '' }}" data-patient-id="{{ patient.id }}">
+                <strong>{{ patient.name }}</strong>
+                {% if patient.unread_count > 0 %}
+                    <span class="unread-count">{{ patient.unread_count }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.querySelectorAll('.patient-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const patientId = this.getAttribute('data-patient-id');
+
+                // Mark messages as read when the patient item is clicked
+                fetch(`/mark-messages-as-read/${patientId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json',
+                    }
+                }).then(response => response.json()).then(data => {
+                    if (data.status === 'success') {
+                        this.classList.remove('unread');
+                        this.querySelector('.unread-count').style.display = 'none';
+                        window.location.href = `/chat/${patientId}/`; // Redirect to chat page
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

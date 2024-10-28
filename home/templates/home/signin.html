@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reqext Signup</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+{% block title %}
+    Login - Reqext
+{% endblock %}
+
+{% block content %}
+<div class="w-full sm:w-1/2 my-6 mx-auto p-6 rounded-xl bg-white shadow-md h-screen flex flex-col items-center">
+    <img src="{% static 'home/imgs/reqext_sign.jpeg' %}" alt="Reqext Logo" class="mb-6 h-[80px]"> <!-- Adjust the path and size as necessary -->
+    <h1 class="mb-6 text-3xl text-center text-gray-600">Welcome to Reqext</h1>
+
+    <form method="post" action="{% url 'home:login' %}" class="w-full">
+        {% csrf_token %}
+        <input class="w-full my-2 py-4 px-6 rounded-xl border-2 border-gray-300 focus:border-teal-500" type="email" name="email" id="email" placeholder="Enter email" required>
+        <input class="w-full my-2 py-4 px-6 rounded-xl border-2 border-gray-300 focus:border-teal-500" type="password" name="password" id="passwordnew" placeholder="Enter password" required>
+
+        {% if messages %}
+        <ul class="messages text-red-500">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="flex justify-between w-full mt-4 mb-4">
+            <div>
+                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+            </div>
+            <a href="" class="text-blue-500 hover:underline">Forgot password?</a>
+        </div>
+
+        <button class="py-4 px-8 text-lg bg-teal-700 rounded-xl text-white w-full mt-2 hover:bg-teal-600 transition">Login</button>
+
+        <div class="flex flex-col mt-4">
+            <p>Don't have an account? <span id="dropdown33" class="text-blue-500 cursor-pointer hover:underline">Sign up</span></p>
+            <div id="dropdown11" class="flex flex-col mt-2 gap-y-1 text-center rounded text-sm w-full hidden">
+                <a href="{% url 'home:signup' %}" class="rounded border-gray-500 bg-teal-700 p-2 text-white">Non-pharmacist</a>
+                <a href="{% url 'home:pharmsignup' %}" class="rounded border-gray-500 bg-teal-700 p-2 text-white">Pharmacist</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    const searchDropdown = document.querySelector('#dropdown11');
+    const toggleDropdown = document.querySelector('#dropdown33');
+
+    toggleDropdown.addEventListener('click', () => {
+        searchDropdown.classList.toggle('hidden');
+    });
+
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("passwordnew");
+        passwordInput.type = (passwordInput.type === "password") ? "text" : "password";
+    }
+</script>
+
+{% endblock %}

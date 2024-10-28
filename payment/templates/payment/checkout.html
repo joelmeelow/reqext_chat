@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        .order-summary {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .order-summary ul {
+            list-style: none;
+            padding: 0;
+        }
+        .order-summary li {
+            margin: 10px 0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .address-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <ul>
+                {% for item in order.items.all %}
+                    <li>{{ item.item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.total_price }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Total: ${{ total_price }}</h3>
+        </div>
+
+        <form method="post" action="{% url 'core:billing' %}">
+            {% csrf_token %}
+            <h2>Billing Address</h2>
+            {{ form_billing.as_p }}
+            <button type="submit">Save Billing Address</button>
+        </form>
+
+        <form method="post" action="{% url 'core:shipping' %}">
+            {% csrf_token %}
+            <h2>Shipping Address</h2>
+            {{ form_shipping.as_p }}
+            <button type="submit">Save Shipping Address</button>
+        </form>
+
+        <form method="post" action="{% url 'core:payment' %}">
+            {% csrf_token %}
+            <h2>Payment</h2>
+            <div id="card-element"></div>
+            <button type="submit">Pay Now</button>
+        </form>
+
+        {% if default_billing_address %}
+            <div class="address-info">
+                <h4>Default Billing Address:</h4>
+                <p>{{ default_billing_address.street_address }}, {{ default_billing_address.apartment_address }}, {{ default_billing_address.country }}, {{ default_billing_address.zip }}</p>
+            </div>
+        {% endif %}
+
+        {% if default_shipping_address %}
+            <div class="address-info">
+                <h4>Default Shipping Address:</h4>
+                <p>{{ default_shipping_address.street_address }}, {{ default_shipping_address.apartment_address }}, {{ default_shipping_address.country }}, {{ default_shipping_address.zip }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('{{ STRIPE_PUBLIC_KEY }}');
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            stripe.createToken(cardElement).then(function(result) {
+                if (result.error) {
+                    alert(result.error.message);
+                } else {
+                    var hiddenInput = document.createElement('input');
+                    hiddenInput.setAttribute('type', 'hidden');
+                    hiddenInput.setAttribute('name', 'stripeToken');
+                    hiddenInput.setAttribute('value', result.token.id);
+                    form.appendChild(hiddenInput);
+                    form.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

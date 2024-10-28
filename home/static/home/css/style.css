@@ -1,0 +1,1636 @@
+/* HEADER */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mulish", sans-serif;
+  }
+  body{
+    min-height: 100vh;
+    background-color: white;
+
+  }
+  main{
+    height: 100%;
+  }
+  
+  .banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+      url(./home/imgs/bellez.jpeg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin: auto;
+    padding: 35px 0;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    z-index: 999;
+   
+  }
+  .innerlogo{
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  .navdropdownshow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 60vh;
+    background-color: white;
+    display: none;
+    padding: 15px 10px;
+    color: white;
+    z-index: 999;
+    border-bottom-left-radius: 15px;
+    transform: translateX(0);
+    transform: all 50ms ease-in-out;
+    
+    
+  }
+  .navdropdownshow.active{
+    display: block;
+  
+    
+  }
+ 
+  .navdropdownshow #remove{
+    color: black;
+  }
+  .list{
+  
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu-bar{
+    background-color: white;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: auto;
+    align-items: center;
+    width: 100%;
+  }
+  .menu-bar #btttn2{
+    color: black;
+    
+    
+  }
+  .reqext-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+ .signupdiv2{
+  padding: 5px;
+
+  border-radius: 10px;
+  
+}
+.signupdiv{
+  width: 60px;
+  border: gray;
+}
+.logindiv{
+
+  width: 40px;
+  color: white;
+  background-color: black;
+}
+.logindiv a{
+  color: white;
+}
+.signupdiv2 a{
+   text-decoration: none;
+   
+   
+
+}
+.signupdiv a{
+  text-decoration: none;
+  color: black;
+  
+
+}
+
+  #btttn{
+    width: 20px;
+   
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #bttn23{
+    width: 20px;
+  
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .infonav{
+    display: flex;
+    /*chang the size of the nav in all the views */
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  .navbar4{
+    display: flex;
+    align-items: center;
+    /*
+    justify-content: space-around;*/
+    justify-content: space-around;
+   
+    flex-grow: 1;
+  
+   
+  }
+  .logoutnav{
+    display: flex;
+    align-items: center;
+    /*in the small mobile, the justify should be center */
+    justify-content: flex-end;
+    flex-grow: 1;
+    display: none;
+   
+  }
+  .list-dropdown{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+    align-content: center;
+    align-items: flex-start;
+    transition: all .5s ease-in-out;
+    
+  }
+  .list-dropdown li{
+    list-style: none;
+    display: block;
+    transition: all .5s ease;
+
+  }
+  .list-dropdown li:hover{
+    transform: scaleX(120%)
+  }
+  .list-dropdown li:first-child{
+    margin-top: 10px;
+  }
+  .list-dropdown li a{
+    text-decoration: none;
+    
+  }
+  .list-dropdown li a:hover{
+    color: red;
+
+  }
+  
+  .logo {
+    width: 10px;
+    cursor: pointer;
+    background-color: red;
+    
+  }
+  .navbar ul{
+    
+    flex-basis: auto;
+  }
+  .navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+  }
+  
+  .navbar ul li::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+  
+  
+  .navbar ul li:hover::after {
+    width: 100%;
+  }
+  
+  .content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .content h1 {
+    /*font-size: 70px;
+    margin-top: 80px;*/
+    font-size: 40px;
+    margin-top: 40px;
+  }
+  
+  .content p {
+    margin: 20px auto;
+    font-weight: 50;
+    line-height: 15px;
+    /* font-weight: 100;
+    line-height: 25px;*/
+  }
+  
+  .login-btn {
+     /* width: 200px;*/
+    width: 120px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .signup-btn {
+    /* width: 200px;*/
+    width: 120px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover {
+    background: #009688;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    width: 100%;
+  }
+  
+  button:hover {
+    border: none;
+  }
+ 
+/* styling the pharmacist's section */
+ /*styling the pharmacist section in the pharmacist page */
+.pharmacist-wrapper1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  width: 100%;
+
+}
+
+/* styling the pharmacist section in the home page */
+.pharmacist-section{
+  
+  overflow: hidden;
+
+  margin: 20px 0px 5px 5px;
+  position: relative;
+  height: 110px;
+
+
+
+
+}
+.pharmacist-wrapper{
+  display: inline-flex;
+  position: absolute;
+  left: 0;
+
+  gap: 20px;
+
+ 
+  
+  overflow: hidden;
+  scroll-behavior: smooth;
+  
+  border-radius: 5px;
+
+
+}
+#pharmacist-container122{
+  width: 95%;
+ 
+  height: 70px;
+  margin-right: 5px;
+ 
+}
+.pharmacist-container{
+  width: 250px;
+  height: 70px;
+  padding: 7px 5px 3px 7px;
+  border-radius: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-content: space-between;
+  border-color: rgb(211, 211, 211, .5);
+  border-style: solid;
+  border-width: 1px;
+
+ 
+  
+}
+.pharmacist-container:hover{
+  background-color: rgb(211, 211, 211, .5);
+}
+.pharmacist-innercontainer{
+  display: flex;
+  
+}
+.pharmacist-img{
+  width: 60px;
+  height: 60px;
+ 
+  border-radius: 12px;
+  
+}
+.pharmacist-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+
+}
+.pharmacist-profile{
+ 
+  width: 120px;
+  flex-grow: 1;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 5px;
+ 
+  display: flex;
+  flex-direction: column;
+ 
+}
+.pharmacist-inner-div2{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+ 
+  padding-right: 12px;
+ 
+}
+.pharmacist-inner-div-3 a button{
+  padding: 5px 10px 5px 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  border-color: rgb(211, 211, 211);
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
+
+
+}
+.pharmacist-inner-div-3 a button:hover{
+  background-color: gray;
+}
+
+/* styling the drug category*/
+.drug-wrapper1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  
+
+  gap: 20px;
+}
+.drug-section{
+
+  height: 280px;
+  margin: 20px 0px 10px 0px;
+  overflow: hidden;
+  border-color: rgb(211, 211, 211);
+  border-style: solid;
+  border-width: 1px;
+  position: relative;
+  
+
+ 
+}
+.drug-wrapper{
+  display: inline-flex;
+  height: 250px;
+  
+  margin-top: 20px;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+}
+.drug-wrapper a{
+  text-decoration: none;
+  color: none;
+}
+.drug-wrapper a:hover{
+  cursor: pointer;
+}
+.drug-section8{
+  position: relative;
+
+}
+.drug-wrapper8{
+  position: absolute;
+  left: 0;
+ 
+}
+
+.drug-container3{
+  width: 95%;
+  height: 300px;
+  border-radius: 15px;
+}
+.drug-container{
+  width: 230px;
+  height: 100%;
+
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.drug-inner-div1{
+  width: 100%;
+  height: 80%;
+ 
+  border-radius: 15px;
+  position: relative;
+}
+
+.drug-inner-div1 img{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;;
+}
+
+.drug-inner-div2{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+
+  height: 20%;
+}
+.drug-inner-inner-div1{
+  height: 50%;
+  width: 100%;
+
+  
+  
+}
+.drug-title{
+ padding-left: 5px;
+ padding-top: 5px;
+}
+.drug-inner-inner-div2{
+  height: 50%;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.drug-category{
+ 
+
+  width: 100px;
+  flex-grow: 1;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+.drug-informations{
+  width: 18px;
+
+  margin-right: 5px;
+}
+.drug-img-div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drug-img-div img{
+  width: 100%;
+  height: 100%;
+  
+  cursor: pointer;
+  
+}
+
+.drug-sidebar{
+  background-color: white;
+  width: 90px;
+  position: absolute;
+  top: 56%;
+  right: 0;
+  height: 80px;
+  font-size: 13px;
+  padding: 3px;
+  border-radius: 10px;
+  display: none;
+  opacity: 0;
+  transition:
+    opacity .5s,
+    display .5s allow-discrete;
+
+
+}
+.drug-innersidebar{
+  display: none;
+  opacity: 0;
+  transition:
+    opacity .5s,
+    display .5s allow-discrete;
+}
+.showing {
+  opacity: 1;
+  display: block;
+}
+.drug-innersidebar ul{
+width: 100%;
+height: auto;
+display: flex;
+flex-direction: column;
+gap: 10px;
+justify-content: space-between;
+align-content: center;
+text-decoration: none;
+}
+.drug-innersidebar ul li{
+ text-decoration: none;
+ list-style: none;
+}
+
+
+
+/* styling the category options, pharmacist and online pharmacist */
+.product_category{
+    
+  margin: 10px 0;
+ 
+ 
+  /* height: 500px; */
+  height: 115px;
+  overflow: hidden;
+  position: relative;
+
+  
+
+}
+  .product_category2{
+    margin: 20px 0;
+  }
+  .category_container{
+    
+    display: flex;
+   
+    scroll-behavior: smooth;
+    overflow: hidden;
+    height: 100%;
+    gap: 10px;
+    
+    padding: 0 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+   
+
+   
+
+   
+   
+    
+  }
+  .category_box{
+    min-width: 105px; 
+    max-height: 105px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+   
+   
+   
+   
+  
+    
+  }
+  .category-image-box{
+    width: 100%;
+    height: 80%;
+    border-radius: 25px;
+    
+    
+    background-color: blue;
+    
+  }
+  .category_image{
+    min-width: 100%;
+    max-height: 100%;
+    border-radius: 25px;
+    
+  }
+  .category-description{
+    text-align: center;
+    margin-top: 7px;
+    width: 100%;
+    
+    font-size: 12px;
+  }
+  
+ 
+   /*PRODUCTS */
+  .product {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    /* height: 500px; */
+    height: 400px;
+   
+   
+    
+
+    margin-top: 10px;
+  
+  }
+  /* styling product.html */
+
+  .product2{
+    margin-bottom: 40px;
+  }
+  
+  .product-category {
+    padding: 0 10vw;
+    font-size: 21px;
+    font-weight: 100;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+   
+  }
+  
+  .product-container {
+    padding: 0 5px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  
+    margin-top: 20px;
+    
+
+  }
+  .transition {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .product-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .product-card {
+    flex: 0 0 auto;
+    /* width: 250px */
+    width: 200px;
+    height: 100%;
+    margin-right: 12px;
+   
+  }
+  
+  .product-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  
+  .product-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /*
+  .discount-tag {
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ff7d7d;
+    right: 10px;
+    top: 10px;
+    text-transform: capitalize;
+  }
+    */
+    .discount-tag{
+      display: none;
+    }
+  
+  .card-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 90%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    /* opacity: 0; */
+    opacity: 1;
+  }
+  
+  .product-card:hover .card-btn {
+   /* opacity: 1; */
+  }
+
+  
+  .card-btn:hover {
+    background: #ff7d7d;
+    color: #fff;
+  }
+  
+  .product-info {
+    width: 100%;
+    height: 100px;
+    padding-top: 7px;
+  }
+  
+  .product-brand {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .product-short-description {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+   
+    text-transform: capitalize;
+    margin: 5px 0;
+  }
+  
+  .price {
+    font-weight: 900;
+    font-size: 15px;
+  }
+  
+  .actual-price {
+    margin-left: 20px;
+   
+    text-decoration: line-through;
+  }
+  .prea-btn,
+  .nxta-btn {
+   display: none;
+  }
+  
+  .pre-btn,
+  .nxt-btn {
+    border: none;
+    width: 10vw;
+    height: 100%;
+    position: absolute;
+    top: -70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    cursor: pointer;
+    z-index: 8;
+  }
+  
+  .pre-btn {
+    left: 0;
+    transform: rotate(180deg);
+  }
+  
+  .nxt-btn {
+    right: 0;
+  }
+  
+  .pre-btn img,
+  .nxt-btn img {
+    opacity: 0.2;
+  }
+  
+  .pre-btn:hover img,
+  .nxt-btn:hover img {
+    opacity: 1;
+  }
+  
+  .collection-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .collection {
+    position: relative;
+  }
+  
+  .collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .collection p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+  
+  .collection:nth-child(3) {
+    grid-column: span 2;
+    margin-bottom: 10px;
+  }
+  .footer-wrapper{
+    background-color: black;
+    color: white;
+    height: auto;
+    width: 100%;/*the size of the footer should be reduced in the pharmacist section */
+ 
+  }
+  .footheader{
+    /*
+    height: 120px;*/
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    border-bottom: gray solid;
+    margin: 0px 10px;
+    
+  }
+  .footheader h2{
+    font-weight: 600;
+    font-size: 15px;
+    /*
+    font-weight: 600;
+    font-size: 23px; */
+  }
+  .footer-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .footer-pointer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: gray solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .ulgen{
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    font-size: 10px;
+    gap: 3px;
+    
+  }
+  .ulgen li{
+    list-style: none;
+    border-bottom: gray groove;
+    display: block;
+    padding-bottom: 5px;
+  }
+  #minus1, #minus2, #minus3, #minus4, #minus5, #minus6{
+    display: none;
+  }
+  .ul1, .ul2, .ul3, .ul4, .ul5, .ul6{
+    display: none;
+  }
+  /* styling the product page */
+
+  .product-wrapper{
+    overflow: hidden;
+    height: auto;
+    position: relative;
+   
+    
+  }
+  .product-contain{
+  
+    display: inline-flex;
+    height: 450px;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+   
+
+  }
+  .products-product-div{
+    height: 420px;
+    width: 100vw;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+
+  }
+  .product-inner-div{
+ 
+    height: 100%;
+    max-width: 100%;
+    
+    
+  }
+  .product-inner-div img{
+   width: 100%;
+   height: 100%;
+    
+  }
+  
+  .product-footer{
+    display: flex;
+    font-size: 13px;
+    justify-content: space-around;
+    background-color: brown;
+    padding: 5px;
+    align-items: center;
+  }
+
+/* styling the addtobag section */
+
+  .prod-descri{
+    display: flex;
+    position: relative;
+    
+    padding: 0px 5px;
+    width: 100%;
+    
+    height: fit-content;
+    margin-top: 22px;
+ 
+  }
+
+  .roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+}
+  
+  .prod-inner-div{
+   
+    max-width: 100%;
+    flex-basis: 80%;
+    height: auto;
+    display: flex;
+    
+    padding: 7px;
+    word-wrap: break-word;
+    flex-wrap: wrap;
+
+  }
+  .prod-inner-div2{
+   
+    display: flex;
+    
+    justify-content: flex-end;
+    flex-basis: 20%;
+    width: 100%;
+    padding: 7px;
+  
+  }
+ 
+  .production-description-div2{
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 3px 7px 12px;
+ 
+  }
+  .product-name2{
+    flex-basis: 70%;
+
+
+  }
+  .star-div{
+    flex-basis: 25%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   
+    font-size: small;
+  }
+  
+  /* styling the add to bag and the buy now button sections */
+  .submit-section{
+    width: 100%;
+   
+ 
+  
+  }
+  .addtobag-container1{
+    display: flex;
+    flex-direction: column;
+  
+   
+  }
+  .product-des{
+    
+      
+  }
+
+  .addtobag{
+ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  .addtobag input{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border-style: none;
+    border: black groove 0.5px
+  }
+  #buynow{
+    background-color: #ff7d7d;
+    margin-top: 7px;
+  }
+
+
+
+  /* styling the dots */
+  .dots{
+    left: 119px;
+    height: auto;
+    position: absolute;
+    top: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    gap: 5px;
+    z-index: 999;
+  }
+  .dot{
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: .2;
+  }
+  
+  /* styling the quantity div */
+  .quantity-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .quantity-div{
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+    padding: 5px;
+    border: gray groove 0.5px;
+  }
+
+
+
+
+/* styling the pharmacist page */
+.online-pharmacist-section{
+  height: 125px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.online-pharmacist-wrapper{
+
+  display: inline-flex;
+  position: absolute;
+  left: 0;
+
+ 
+ 
+}
+
+.online-pharmacist-container{
+  width: 130px;
+  height: 120px;
+
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.online-pharmacist-inner-div{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: red;
+}
+.online-pharmacist-inner-div2{
+  font-size: 12px;
+  text-align: center;
+}
+
+  /*
+  .footer-container{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    gap: 15px;
+    justify-content: space-evenly;
+    
+    padding: 10px 15px;
+
+  }
+  .footer-container ul{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    
+    gap: 18px;
+    height: 60%;
+    width: 100%;
+    margin-top: 50px;
+  }
+  .footer-container ul li{
+    list-style: none;
+  }*/
+
+  
+  @media screen and (max-width: 481px) {
+ 
+    .dots{
+      display: none;
+     
+    }
+
+  
+  }
+
+
+  
+  @media screen and (min-width: 481px) {
+ 
+   
+        /* styling the drug category, switch the display flex from colums to rows*/
+.drug-wrapper1{
+  display: none;
+  }
+  
+  }
+
+
+/* For Desktop View */
+@media screen and (min-width: 1024px) {
+  .main1-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+ 
+  }
+  .main-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+  }
+  .product-wrapper{
+   flex-basis: 73%;
+   
+    
+  }
+  .products-product-div{
+    height: 420px;
+    width: 700px;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+
+  }
+
+    /* styling the dots */
+    .dots{
+      left: 250px;
+     
+     
+    }
+  
+    .addtobag-container{
+   
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+      min-height: 250px;
+      max-height: auto;
+    }
+    .addtobag{
+ 
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+    
+    .prod-descri{
+      display: flex;
+      position: relative;
+      
+      padding: 0px 5px;
+      width: 100%;
+      
+      height: fit-content;
+      margin-top: 5px;
+    }
+    .prea-btn,
+    .nxta-btn {
+      border: none;
+      width: 7vw;
+      position: absolute;
+      top: 40%;  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      height: 40px;
+      border-radius: 50%;
+   
+      cursor: pointer;
+      z-index: 999;
+    }
+    
+      
+    
+    .prea-btn {
+      left: 0;
+      transform: rotate(180deg);
+    }
+    
+    .nxta-btn {
+      right: 0;
+    }
+    
+    .prea-btn img,
+    .nxta-btn img {
+      opacity: 0.1;
+    }
+    
+    .prea-btn:hover img,
+    .nxta-btn:hover img {
+      opacity: 1;
+    }
+    .preaa-btn, .nxteaa-btn{
+      top: 20%;  
+    }
+
+    .product_category2{
+      margin-top: 55px;
+    
+
+    }
+    /* styling the drug category, switch the display flex from colums to rows*/
+.drug-wrapper1{
+display: none;
+}
+.pharmacist-section1{
+  display: flex;
+ 
+}
+.pharmacist-wrapper1{
+  width: 300px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 10px;
+
+}
+.picture-div{
+
+  flex-grow: 1;
+  background-color: white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.picture-inner-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+   
+   
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+        /* styling the drug category, switch the display flex from colums to rows*/
+.drug-wrapper1{
+  display: none;
+  }
+  .main1-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+ 
+  }
+  .main-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+  }
+  .product-wrapper{
+   flex-basis: 73%;
+   
+    
+  }
+  .products-product-div{
+    height: 420px;
+    width: 700px;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+
+  }
+
+    /* styling the dots */
+    .dots{
+      left: 250px;
+     
+     
+    }
+  
+    .addtobag-container{
+   
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+      min-height: 250px;
+      max-height: auto;
+    }
+    .addtobag{
+ 
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+    
+    .prod-descri{
+      display: flex;
+      position: relative;
+      
+      padding: 0px 5px;
+      width: 100%;
+      
+      height: fit-content;
+      margin-top: 5px;
+    }
+    .prea-btn,
+    .nxta-btn {
+      border: none;
+      width: 7vw;
+      position: absolute;
+      top: 40%;  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      height: 40px;
+      border-radius: 50%;
+   
+      cursor: pointer;
+      z-index: 999;
+    }
+    
+      
+    
+    .prea-btn {
+      left: 0;
+      transform: rotate(180deg);
+    }
+    
+    .nxta-btn {
+      right: 0;
+    }
+    
+    .prea-btn img,
+    .nxta-btn img {
+      opacity: 0.1;
+    }
+    
+    .prea-btn:hover img,
+    .nxta-btn:hover img {
+      opacity: 1;
+    }
+    .preaa-btn, .nxteaa-btn{
+      top: 20%;  
+    }
+
+    .product_category2{
+      margin-top: 55px;
+    
+
+    }
+    /* styling the drug category, switch the display flex from colums to rows*/
+.drug-wrapper1{
+display: none;
+}
+.pharmacist-section1{
+  display: flex;
+ 
+}
+.pharmacist-wrapper1{
+  width: 300px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 10px;
+
+}
+.picture-div{
+
+  flex-grow: 1;
+  background-color: white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.picture-inner-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+   
+   
+}
+
+  
+
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px) 
+    and (orientation: portrait) {
+  
+}
+
+/* For Mobile Landscape View */
+@media screen and (max-device-width: 640px) 
+    and (orientation: landscape) {
+    .gfg-div {
+        width: 400px;
+        height: 200px;
+        background-color: cyan;
+        color: black;
+    }
+}
+
+/* For Mobile Phones Portrait or Landscape View */
+@media screen 
+    and (max-device-width: 640px) {
+    .gfg-div {
+        width: 400px;
+        height: 200px;
+        background-color: chartreuse;
+        color: black;
+    }
+}
+
+/* For iPhone 4 Portrait or Landscape View */
+@media screen and (min-device-width: 320px) 
+    and (-webkit-min-device-pixel-ratio: 2) {
+    .gfg-div {
+        width: 400px;
+        height: 400px;
+        background-color: brown;
+        color: black;
+    }
+}
+
+/* For iPhone 5 Portrait or Landscape View */
+@media (device-height: 568px) 
+    and (device-width: 320px) 
+    and (-webkit-min-device-pixel-ratio: 2) {
+    .gfg-div {
+        width: 400px;
+        height: 400px;
+        background-color: cornflowerblue;
+        color: black;
+    }
+}
+
+/* For iPhone 6 and 6 plus Portrait or Landscape View */
+@media (min-device-height: 667px) 
+    and (min-device-width: 375px) 
+    and (-webkit-min-device-pixel-ratio: 3) {
+    .gfg-div {
+        width: 400px;
+        height: 400px;
+        background-color: darkgoldenrod;
+        color: black;
+    }
+};

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Passport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            background-color: #1e3a8a; /* Blue-700 */
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 15px;
+            border-bottom: 2px solid #000;
+        }
+
+        .header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #4a4a4a; /* Gray-600 */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #1e3a8a; /* Blue-700 */
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1d4ed8; /* Blue-800 */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <li class="w-[100px] text-[17px] sm:text-[25px]">REQEXT</li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="form-container">
+        <h1>Upload your passport</h1>
+
+        <form method="post" action="/uploadimage/{{ pharm.id }}/" enctype="multipart/form-data">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

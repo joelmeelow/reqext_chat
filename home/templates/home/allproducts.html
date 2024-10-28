@@ -1,0 +1,692 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'home/imgs/reqext_sign.jpeg' %}"type="image/png" width="20px" height="20px">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+   
+    <title>reqext</title>
+ 
+</head>
+
+<body>
+    <main class="main1">
+        <div class="banner">
+            <nav class="navbar">
+                <div class="innerlogo">
+                    <img src="{% static 'home/imgs/bellez.jpeg' %}" alt="" class="logo">
+                    <p>logo</p>
+                </div>
+                <ul class="innernav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">pharmacists</a></li>
+                    <li><a href="#">categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+                
+
+            </nav>
+            <div class="menu-bar"> 
+                <div class="reqext-logo">
+                    <img src="{% static 'home/imgs/reqext_sign.jpeg' %}" width="40px" height="40px">
+                    <span>REQEXT</span>
+                </div>
+                
+                
+            
+                
+                <div class="infonav">
+                    <div class="navbar4">
+                        <div class="signupdiv2   signupdiv"><a href=""> sign up</a></div>
+                        <div class="signupdiv2  logindiv"><a href=""> log in</a></div>      
+
+                    </div>
+                    
+                    <a href=""><div class="logoutnav"><p>logout</p></div></a>
+                    <div id="btttn" ><i class='bx bx-menu' id="btttn2"  ></i></div>
+
+                </div>
+                
+                
+                
+            </div>
+           
+            <div class="navdropdownshow">
+                <ul class="list-dropdown">
+                    <div class="list">
+                        <div><a class="anchor" href="#">user name</a></div>   
+                        <div id="bttn23"><i class='bx bx-x' id="remove"></i></div>
+                    </div>
+                    <li ><a class="anchor"  href="#">products</a></li>
+                    <li ><a class="anchor"  href="#">pharmacists</a></li>
+                    <li ><a class="anchor"  href="#">Contact</a></li>
+                    <li ><a class="anchor"  href="#">About Us</a></li>
+                    <li ><a class="anchor"  href="#">sign out</a></li>
+                    
+                </ul>
+                
+                
+
+            </div>
+
+           
+        </div>
+        <main class=" ">
+           
+            <section class="drug-section drug-section7" id="drugsection_id">
+                <button class="prea-btn preaa-btn  preaa-btn22 "><img src="images/arrow.png" alt=""></button>
+                <button class="nxta-btn nxteaa-btn   nxteaa-btn22 "><img src="images/arrow.png" alt=""></button>
+                <div class="drug-wrapper  drug-wrapper5" id="drugwrapper_id">
+                    {% for products in myproduct %}
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            
+                            {% if products.image %}
+                               
+                            <img src="{{ products.image.url }}">
+                            {% endif %}
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li><a>drug info...</a></li>
+                                        <li><a>{{products.category}}</a></li>
+                                        <li><a>list</a></li>
+                                    </ul>
+                                    <div class="drug-information22">
+                                        <p>{{products.drug_infromation}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <a href="{{myproduct.get_absolute_url}}">
+                                        <span>{{products.name}}</span>
+                                    </a>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <a href="{{myproduct.get_absolute_url}}">
+                                        <span>{{products.price}}</span>
+                                    </a>
+
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="{% static 'home/imgs/option.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+                    
+            </section>
+            
+            <div class="drug-section  drug-section8" id="drug-section8_id">
+                <div class="drug-wrapper drug-wrapper8" id="drug-wrapper8_id">
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <a href="{{myproduct.get_absolute_url}}">
+                                        <span>drug category</span>
+                                    </a>
+                                </div>
+                              
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="{% static 'home/imgs/option.png' %}">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                              
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="{% static 'home/imgs/option.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                            
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                            
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                              
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <section class="drug-section drug-container22" id="drug-container82_id">
+                <div class="drug-wrapper drug-wrapper102" id="drug_wrapper22_id">
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="{% static 'home/imgs/option.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="{% static 'home/imgs/option.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="drug-container  drug-container2">
+                        <div class="drug-inner-div1">
+                            <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                            <div class="drug-sidebar">
+                                <div class="drug-innersidebar">
+                                    <ul>
+                                        <li>drug info...</li>
+                                        <li>drug category</li>
+                                        <li>list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drug-inner-div2">
+                            <div class="drug-inner-inner-div1">
+                                <div class="drug-title">
+                                    <span>drug title</span>
+
+                                </div>
+                                
+                            </div>
+                            <div class="drug-inner-inner-div2">
+                                <div class="drug-category">
+                                    <span>drug category</span>
+                                </div>
+                                <div class="drug-informations">
+                                    <div class="drug-img-div">
+                                        <img src="./images/option.png.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </section>
+           
+           
+                  
+    
+           
+            
+
+                    
+
+        
+    </main>
+    <footer>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+    
+            footer {
+                background-color: #333;
+                color: white;
+                padding: 20px 0;
+            }
+    
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+    
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+    
+            .footer-nav {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+    
+            .footer-nav h4 {
+                margin: 10px 0;
+                border-bottom: 2px solid #555;
+                padding-bottom: 5px;
+            }
+    
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+    
+            ul li {
+                margin: 5px 0;
+            }
+    
+            ul li a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+    
+            ul li a:hover {
+                color: #00bcd4; /* Light blue on hover */
+                text-decoration: underline;
+            }
+    
+            .text-center {
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
+        
+        <div class="container">
+            <h2>REQEXT</h2>
+            <div class="footer-nav">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Arts</a></li>
+                    <li><a href="#">Wigs</a></li>
+                    <li><a href="#">Different Hairs</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Hair Care</a></li>
+                    <li><a href="#">Skin Care</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 REQEXT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+	<script src="{% static 'home/scripts/index.js' %}">
+        $(document).ready(function(){
+            $('#plus1').on('click', function(){
+                alert('ok');
+                $('.ul1').show();
+                $('#minus1').show();
+                $('#plus1').hide();
+            })
+        })
+        var dropdownshow = document.querySelector('.navdropdownshow');
+        var bttn = document.querySelector('#btttn');
+
+        bttn.addEventListener('click', () => {
+            dropdownshow.classList.toggle('active');
+            alert(console.log('hey'))
+        });
+
+    </script>
+    
+  </body>
+</html>

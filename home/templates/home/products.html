@@ -1,0 +1,742 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reqext</title>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <main>
+        <nav class="navbar">
+            <div class="innerlogo">
+                <img src="{% static 'home/imgs/bellez.jpeg' %}" alt="" class="logo">
+                <p>logo</p>
+            </div>
+            <ul class="innernav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Equipment</a></li>
+                <li><a href="#">Trails</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            
+
+        </nav>
+        <div class="menu-bar"> 
+            <div class="reqext-logo">
+                <img src="{% static 'home/imgs/reqext_sign.jpeg' %}" width="40px" height="40px">
+                <span>REQEXT</span>
+            </div>
+            
+            
+        
+            
+            <div class="infonav">
+                <div class="navbar4">
+                    <div class="signupdiv2   signupdiv"><a href=""> sign up</a></div>
+                    <div class="signupdiv2  logindiv"><a href=""> log in</a></div>      
+
+                </div>
+                
+                <a href=""><div class="logoutnav"><p>logout</p></div></a>
+                <div id="btttn" ><i class='bx bx-menu' id="btttn2"  ></i></div>
+
+            </div>
+            
+            
+            
+        </div>
+       
+        <div class="product-upper-section">
+           
+        </div>
+        <div class="main1-container">
+            <div class="main-container">
+                
+                <section class="product-wrapper">
+                    <button class="prea-btn"   id="prea-btn2"><img src="images/arrow.png" alt=""></button>
+                    <button class="nxta-btn"  id="nxta-btn2"><img src="images/arrow.png" alt=""></button>
+                    <div class="product-contain">
+                        <div class="dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        
+                        <div class="products-product-div">
+                            <div class="product-inner-div">
+                                <img src="{% static 'home/imgs/bellez.jpeg' %}" >
+                                <div class="product-footer">
+                                    <p>hey</p>
+                                    <p>free shipping</p>
+                                    <p>30 days free return</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="products-product-div">
+                            <div class="product-inner-div">
+                                <img src="{% static 'home/imgs/bellez.jpeg' %}" >
+                                <div class="product-footer">
+                                    <p>hey</p>
+                                    <p>free shipping</p>
+                                    <p>30 days free return</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products-product-div">
+                            <div class="product-inner-div">
+                                <img src="{% static 'home/imgs/bellez.jpeg' %}" >
+                                <div class="product-footer">
+                                    <p>hey</p>
+                                    <p>free shipping</p>
+                                    <p>30 days free return</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products-product-div">
+                            <div class="product-inner-div">
+                                <img src="{% static 'home/imgs/bellez.jpeg' %}">
+                                <div class="product-footer">
+                                    <p>hey</p>
+                                    <p>free shipping</p>
+                                    <p>30 days free return</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            
+                <div class="addtobag-container1">
+                    <div class="product-des">
+                        <div class="prod-descri  roboto-mono-">  
+                            <div class="prod-inner-div">
+                                <p> {{products.description}} </p>     
+                            </div>
+                            <div class="prod-inner-div2">
+                                <i class='bx bx-heart'></i>
+                                <i class='bx bx-export'></i>
+                            </div>
+                        </div> 
+                        
+                        <div class="production-description-div2">
+                            <div class="product-name2">
+                                <span>{{products.title}}</span>
+                            </div>
+                            <div class="star-div">
+                                <i class='bx bx-star'></i>
+                                <p>5 (100)</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="quantity-wrapper">
+                        <div class="quantity-container">
+                            <p>{{products.quantity}}</p>
+                        </div>
+                        <div class="quantity-div">
+                            <div id="plus-sign"><i class='bx bx-plus' ></i></div>
+                            <div ><span id="count-content" >1</span></div>
+                            <div id="minus-sign"><i class='bx bx-minus' ></i></div>
+                        </div>
+                        <div class="submit-section">
+                            <form id="addtobagid" class="addtobag  addtobag1" action="" method="">
+                                <input type="submit" id="addtobag" placeholder="Add To Bag">
+                            </form>
+                            <form id="buyid" class="addtobag  buynow" action="" method="">
+                                <input type="submit" id="buynow" placeholder="Buy Now">
+                            </form>
+                        </div>
+                    </div>
+                 
+                   
+                </div>
+            </div>
+        </div>
+     
+        <div>
+            <p>
+                
+
+            </p>
+        </div>
+       
+        <div class="product_category product_category2 product_category3" id="productcat">
+            <button class="prea-btn preaa-btn  "><img src="images/arrow.png" alt=""></button>
+            <button class="nxta-btn nxteaa-btn   "><img src="images/arrow.png" alt=""></button>
+            <div class="category_container category_container2" id="categorycontainer">
+                
+                <div class="category_box category_box2">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">skin health</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">sexual health</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">immune system</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">category2</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">category</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">product category</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">product category</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">product category</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">product category</span>
+                    </div>
+
+                </div>
+                <div class="category_box">
+                    <div class="category-image-box">
+                        <img class="category_image" src="{% static 'home/imgs/bellez.jpeg' %}">
+                       
+                    </div>
+                    <div class="category-description">
+                        <span class="category_span">product category</span>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+        <h2 class="product-category">best selling</h2>
+        <div class="product product2 product3" id="product_product2"> 
+            
+            <button class="pre-btn  pre-btn1"><img src="images/arrow.png" alt=""></button>
+            <button class="nxt-btn  nxt-btn1"><img src="images/arrow.png" alt=""></button>
+            <div class="product-container productbox" id="products_containers">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to bag</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">drug name</h2>
+                        <p class="product-short-description">drug category</p>
+                        <span class="price">$20</span><span class="actual-price"></span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="product-category">Similar Products</h2>
+        <div class="product product2 product4" id="product_id"> 
+            
+            <button class="pre-btn  btnpre"><img src="images/arrow.png" alt=""></button>
+            <button class="nxt-btn  ptnnxt"><img src="images/arrow.png" alt=""></button>
+            <div class="product-container producttainer" id="container_id">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}"class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <img src="{% static 'home/imgs/bellez.jpeg' %}" class="product-thumb" alt="">
+                        <button class="card-btn">add to wishlist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-description">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+    </main>
+    <footer>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+    
+            footer {
+                background-color: #333;
+                color: white;
+                padding: 20px 0;
+            }
+    
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+    
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+    
+            .footer-nav {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+    
+            .footer-nav h4 {
+                margin: 10px 0;
+                border-bottom: 2px solid #555;
+                padding-bottom: 5px;
+            }
+    
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+    
+            ul li {
+                margin: 5px 0;
+            }
+    
+            ul li a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+    
+            ul li a:hover {
+                color: #00bcd4; /* Light blue on hover */
+                text-decoration: underline;
+            }
+    
+            .text-center {
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
+        
+        <div class="container">
+            <h2>REQEXT</h2>
+            <div class="footer-nav">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Arts</a></li>
+                    <li><a href="#">Wigs</a></li>
+                    <li><a href="#">Different Hairs</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Hair Care</a></li>
+                    <li><a href="#">Skin Care</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 REQEXT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    	<script src="{% static 'home/scripts/product.js' %}"></script>
+        <script>
+          
+       jQuery(document).ready(function($) {
+           $(document).ready(function(){
+              
+       
+               $.ajax({
+                   type: 'GET',
+                   url : "display/checkquantity/{{products.id}}/",
+                   success: function(data){
+                       console.log(data);
+                       var count = $("#count-content").val();
+                       var actualcount = data.quantity
+                       if (count != actualcount){
+                           $("#count-content").val() = actualcount;
+                       }
+                      
+                   },
+                   error: function(data){
+                    //   alert('An error occured')
+                   }
+               });
+          
+           })
+         
+           
+          
+               $('#addtobagid').on('submit',function(e){
+                 e.preventDefault();
+             
+                 $.ajax({
+                   type:'POST',
+                   url:'/display/count/{{products.id}}',
+                   data:{
+                       quantity:$('#count-content').val(),
+                       
+                     csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                   },
+                   success: function(data){
+                      //alert(data)
+                   }
+                 });
+               
+               });
+               $(document).on('submit','#buyid',function(e){
+                 e.preventDefault();
+             
+                 $.ajax({
+                   type:'POST',
+                   url:'/display/count/{{products.id}}',
+                   data:{
+                       quantity:$('#count-content').val(),
+                       
+                     csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                   },
+                   success: function(data){
+                      //alert(data)
+                   }
+                 });
+                 
+               });
+           
+            
+            
+                   
+           
+
+            });
+       </script>
+           
+       <script>
+          jQuery(document).ready(function($) {
+           $(document).ready(function(){
+                     
+            $('#plus-sign').on('click', function() {
+                var element = document.getElementById('count-content');
+                var number = parseInt(element.textContent);
+                
+                console.log(number);
+                number = number + 1; // Increment the value
+                element.textContent = number
+               // send the new  value of the text to the database from here
+                console.log('boo'); // Fixed console log
+            });
+
+            $('#minus-sign').on('click', function() {
+                var element = document.getElementById('count-content');
+                var number = parseInt(element.textContent);
+                if (number == 1) {
+                    element.textContent = 1
+                } else {
+                    number = number - 1; // Decrement the value
+                    element.textContent = number
+                }
+                console.log('number'); // Log when the minus button is clicked
+            });
+
+            });
+        });
+
+
+       </script>
+           
+  </body>
+</html>

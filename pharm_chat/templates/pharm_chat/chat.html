@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with {{ pharmacist.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<body>
+    
+
+    <div id="errorMessage"></div>
+    <div id="loadingIndicator">Sending...</div>
+
+   
+
+    <div id="overlay"></div>
+
+    <div id="outputContainer" style="display: none;"></div>
+    {{ username|json_script:"username" }}
+
+    <script>
+        let chatSocket;
+
+        function connectWebSocket() {
+            const roomName = JSON.parse(document.getElementById('username').textContent);
+
+            chatSocket = new WebSocket(
+                'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
+            );
+
+            chatSocket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                displayMessage(data.username, data.message, data.picture_url);
+            };
+
+            chatSocket.onerror = function(event) {
+                showError('WebSocket error: ' + event.message);
+            };
+
+            chatSocket.onclose = function() {
+                showError('Connection lost. Reconnecting...');
+                setTimeout(connectWebSocket, 5000);
+            };
+        }
+
+        
+    </script>
+</body>
+</html>
